@@ -2,7 +2,7 @@ import cv2 as cv
 
 #video = cv.VideoCapture(0)
 
-video= cv.VideoCapture("people1.mp4")
+video= cv.VideoCapture('Motion_filtering/people.mp4')
 
 subtractor = cv.createBackgroundSubtractorMOG2(10, 100)
 
@@ -11,7 +11,8 @@ while True:
 
     if not ret:
         break
-
+    
+    cv.imshow('Original', frame)
     mask = subtractor.apply(frame)
     cv.imshow("Deneme", mask)
 
